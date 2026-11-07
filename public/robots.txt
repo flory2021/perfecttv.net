@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://perfecttv.com
+
+# Sitemaps
+Sitemap: https://perfecttv.com/sitemap.xml

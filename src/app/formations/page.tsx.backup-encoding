@@ -1,0 +1,27 @@
+import React from "react";
+
+
+function PredicationsPage() {
+  return (
+    <div>
+  <section className="bg-shop-hero h-[316px] flex justify-center flex-col items-center">
+      <p className="font-medium text-[48px]">
+        Formations
+      </p>
+      <div className="flex gap-2">
+        <p className="font-bold">Perfect tv</p>
+      </div>
+    </section>
+    <p className="text-[32px] font-bold text-center gap-[20px] mt-[30px] md:mt-[62px]">Formations sur la croissance de l&apos;Ã©glise </p>
+    <p className="text-[20px] text-center gap-[10px] mt-[15px] md:mt-[20px]"> Pendant prÃ¨s de trois ans et demi, notre seigneur a pris le temps dâ€™enseigner ses disciples autrement dit les former. Il a dit Ã  pierre et Ã  frÃ¨re suivez-moi, <br/>je ferais de vous des pÃªchers dâ€™hommes. Comment cela sera-t-il possible ? par la formation et Pierre fut lâ€™un des grand pÃ©cheurs dâ€™hommes </p>
+    <p className="text-[20px] text-center gap-[10px] mt-[15px] md:mt-[20px]">VoilÃ  pourquoi lâ€™AFRICE met en prioritÃ© une sÃ©rie des formations des hommes et femmes selon lâ€™inspiration du missionnaire et fondateur du mouvement AFRICE<br/>RÃ©vÃ©rend Pasteur Abrham Kroll et les succÃ¨s dÃ¨s ce diffÃ©rentes formations et techniques dâ€™Ã©vangÃ©lisation, font la joie et le bonheur des responsables des Ã©glises et sur la croissance de lâ€™Ã©glise.   </p>
+     <p className="text-[20px] text-center gap-[10px] mt-[15px] md:mt-[20px]"><br/></p>
+    <p className="text-[20px] text-center gap-[10px] mt-[15px] md:mt-[20px]">(Mise Ã  jour Ã  suivre) </p>
+  
+    </div>
+    
+);
+}
+
+export default PredicationsPage;
+
