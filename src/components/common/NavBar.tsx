@@ -183,11 +183,14 @@ export default function NavBar() {
 
           {/* ================= DON DESKTOP ================= */}
         
-           <h2
-              className="flex items-center gap-3 rounded-xl px-4 py-3.5 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700"
-            >
-              PERFECT TV
-            </h2>
+          <div className="flex flex-col items-center justify-center gap-1 rounded-xl px-3 py-3.5 text-center text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700">
+            <div className="text-xl font-extrabold tracking-tight text-slate-900 lg:hidden">
+              PERFECT<span className="text-red-700"> TV</span>
+            </div>
+            <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-slate-500 lg:hidden">
+              LA PERFECTION DANS LA SIMPLICITE
+            </div>
+          </div>
 
           {/* ================= MOBILE BUTTON ================= */}
           <button
@@ -257,22 +260,22 @@ export default function NavBar() {
               }`}
             >
               <Link
-                href="/voyages"
+                href="/infos/articles"
                 onClick={closeMenus}
                 className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-700"
               >
                 <Newspaper className="h-4 w-4" />
-                voyages missionnaires
+                Politique
               </Link>
 
               <Link
 
-                href="/formations"
+                href="/infos/articles"
                 onClick={closeMenus}
                 className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-slate-600 hover:bg-red-50 hover:text-red-600"
               >
                 <Megaphone className="h-4 w-4" />
-                formations sur la croissance de l&apos;église
+                Economie
               </Link>
             </div>
 
