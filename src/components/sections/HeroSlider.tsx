@@ -14,7 +14,7 @@ import {
 const slides = [
   {
     id: 1,
-    image: "/images/hero.jpg",
+    image: "/images/hero5.png",
     category: "Actualité",
     title: "L'information au cœur de Perfect TV",
     description:
@@ -24,27 +24,37 @@ const slides = [
   },
   {
     id: 2,
-    image: "/images/hero.png",
+    image: "/images/hero6.png",
+    category: "Actualité",
+    title: "L'information au cœur de Perfect TV",
+    description:
+      "Découvrez les dernières informations, analyses et actualités à travers une plateforme moderne et accessible.",
+    button: "Découvrir les articles",
+    link: "/infos/articles",
+  },
+  {
+    id: 3,
+    image: "/images/hero1.png",
     category: "Infos générales",
     title: "Restez informé de l'essentiel",
     description:
       "Retrouvez nos informations, annonces et publications régulièrement mises à jour.",
     button: "Voir les informations",
-    link: "/infos",
+    link: "/",
   },
   {
-    id: 3,
-    image: "/images/hero.jpg",
+    id: 4,
+    image: "/images/hero2.png",
     category: "Médias",
     title: "Découvrez nos contenus multimédias",
     description:
       "Photos, prédications et contenus exclusifs vous attendent dans notre espace médias.",
     button: "Explorer les médias",
-    link: "/photos",
+    link: "/infos/articles",
   },
   {
-    id: 4,
-    image: "/images/hero.png",
+    id: 5,
+    image: "/images/hero4.png",
     category: "Perfect TV",
     title: "Une plateforme pensée pour vous",
     description:
@@ -88,12 +98,12 @@ export default function HeroSlider() {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-slate-950"
+      className="relative w-full overflow-hidden bg-slate-950 "
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* IMAGE */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 ">
         {slides.map((item, index) => (
           <div
             key={item.id}
@@ -109,7 +119,7 @@ export default function HeroSlider() {
               fill
               priority={index === 0}
               sizes="100vw"
-              className="object-cover"
+              className="object-cover object-center"
             />
           </div>
         ))}

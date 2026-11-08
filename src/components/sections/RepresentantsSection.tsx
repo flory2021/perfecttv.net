@@ -105,7 +105,7 @@ export default function RepresentantsSection() {
                     src={representant.image}
                     alt={representant.nom}
                     fill
-                    className="object-contain p-10 transition duration-700 group-hover:scale-110"
+                    className="object-cover p-1 transition duration-700 group-hover:scale-110"
                   />
 
                   {/* Overlay */}
