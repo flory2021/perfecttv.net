@@ -64,7 +64,7 @@ export default function NavBar() {
 
             <div className="hidden sm:block">
               <div className="text-xl font-extrabold tracking-tight text-slate-900">
-                PERFECT<span className="text-blue-700"> TV</span>
+                PERFECT<span className="text-red-700"> TV</span>
               </div>
 
               <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-slate-500">
