@@ -8,22 +8,22 @@ import { MapPin, ArrowRight } from "lucide-react";
 const representants = [
   {
     id: 1,
-    nom: "Philippe MVIPI",
-    fonction: "Directeur de la rédaction de Perfect TV",
+    nom: "Philippe VUMPI",
+    fonction: "Directeur des Informations",
     zone: "Kinshasa",
     image: "/images/philippe.png",
   },
   {
     id: 2,
     nom: "Micky EBOUNDE",
-    fonction: "Directeur de la production de Perfect TV",
+    fonction: "Directeur des Productions",
     zone: "Kinshasa",
     image: "/images/micky.png",
   },
   {
     id: 3,
     nom: "Patricia MUTONKOLE",
-    fonction: "Caissere de Perfect TV",
+    fonction: "Directrice Commerciale ",
     zone: "Kinshasa",
     image: "/images/patricia.png",
   },
@@ -75,7 +75,7 @@ export default function RepresentantsSection() {
           </div>
 
           <Link
-            href="/representants"
+            href="/#"
             className="group inline-flex items-center gap-2 font-bold text-blue-700 transition hover:text-red-600"
           >
             Voir tous les représentants
