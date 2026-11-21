@@ -1,3 +1,4 @@
+
 import { NextRequest, NextResponse } from "next/server";
 import { randomUUID } from "crypto";
 import connectDB from "@/lib/mongodb";
@@ -9,6 +10,8 @@ type RouteContext = {
     slug: string;
   };
 };
+
+const VIEW_EXPIRATION = 1 * 60 * 60 * 1000;
 
 export async function POST(
   request: NextRequest,
@@ -35,13 +38,34 @@ export async function POST(
       visitorId = randomUUID();
     }
 
+    const now = new Date();
+    const expirationDate = new Date(
+      now.getTime() - VIEW_EXPIRATION
+    );
+
     let newView = false;
 
     try {
-      await ArticleView.create({
-        articleId: article._id,
-        visitorId,
-      });
+      await ArticleView.findOneAndUpdate(
+        {
+          articleId: article._id,
+          visitorId,
+          createdAt: { $lte: expirationDate },
+        },
+        {
+          $set: {
+            createdAt: now,
+            updatedAt: now,
+          },
+        },
+        {
+          new: true,
+          upsert: true,
+          setDefaultsOnInsert: true,
+          timestamps: false,
+        }
+      );
+
       newView = true;
     } catch (error: unknown) {
       const mongoError = error as { code?: number };
@@ -65,6 +89,7 @@ export async function POST(
     const response = NextResponse.json({
       success: true,
       views: updatedArticle?.views ?? 0,
+      newView,
     });
 
     response.cookies.set("ptv_visitor", visitorId, {
@@ -80,7 +105,10 @@ export async function POST(
     console.error("Erreur enregistrement vue article:", error);
 
     return NextResponse.json(
-      { success: false, message: "Impossible d'enregistrer la vue." },
+      {
+        success: false,
+        message: "Impossible d'enregistrer la vue.",
+      },
       { status: 500 }
     );
   }

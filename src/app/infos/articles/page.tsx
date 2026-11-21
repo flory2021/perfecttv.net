@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Search, CalendarDays, User, ArrowRight } from "lucide-react";
 import connectDB from "@/lib/mongodb";
 import Article from "@/models/Article";
+import SecondNavBar from "@/components/common/SecondNavBar";
 
 export const dynamic = "force-dynamic";
 
@@ -93,8 +94,9 @@ export default async function ArticlesPage({
             Retrouvez nos articles, analyses, informations et publications.
           </p>
         </div>
+        
       </section>
-
+<SecondNavBar />
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-8 rounded-2xl bg-white p-4 shadow-sm">
           <form

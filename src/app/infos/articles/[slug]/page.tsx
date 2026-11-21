@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SecondNavBar from "@/components/common/SecondNavBar";
 import { notFound } from "next/navigation";
 import {
   CalendarDays,
@@ -10,7 +11,7 @@ import {
 import connectDB from "@/lib/mongodb";
 import Article from "@/models/Article";
 import ArticleInteractions from "@/components/article-interactions";
-
+import ArticleShare from "@/components/article-share";
 export const dynamic = "force-dynamic";
 
 export default async function ArticleDetailPage({
@@ -39,7 +40,7 @@ export default async function ArticleDetailPage({
           priority
           className="object-cover"
         />
-
+        
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
         <div className="absolute bottom-0 left-0 right-0">
@@ -55,7 +56,7 @@ export default async function ArticleDetailPage({
           </div>
         </div>
       </section>
-
+    <SecondNavBar />
       <article className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-wrap gap-5 border-b border-slate-200 pb-6 text-sm text-slate-500">
           <span className="flex items-center gap-2">
@@ -82,8 +83,10 @@ export default async function ArticleDetailPage({
             <p key={index}>{paragraph}</p>
           ))}
         </div>
+        
 
         <ArticleInteractions slug={article.slug} />
+        <ArticleShare title={article.title} />
 
         <div className="mt-12 border-t border-slate-200 pt-8">
           <Link
@@ -94,6 +97,7 @@ export default async function ArticleDetailPage({
             Retour aux articles
           </Link>
         </div>
+        
       </article>
     </main>
   );

@@ -67,7 +67,7 @@ export default function NavBar() {
                 PERFECT<span className="text-red-700"> TV</span>
               </div>
 
-              <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+              <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-red-700">
                 LA PERFECTION DANS LA SIMPLICITE
               </div>
             </div>
@@ -88,74 +88,17 @@ export default function NavBar() {
 
             {/* ================= ACTUALITÉS ================= */}
             <div className="relative">
-              <button
-                type="button"
-                onClick={() => toggleDropdown("actualites")}
-                className={`group flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200 ${
-                  openDropdown === "actualites"
-                    ? "bg-blue-50 text-blue-700"
-                    : "text-slate-700 hover:bg-blue-50 hover:text-blue-700"
-                }`}
-              >
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
-                        <Radio className="h-4 w-4" />
-                      </span>
-
-                ACTUALITÉS
-
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-300 ${
-                    openDropdown === "actualites"
-                      ? "rotate-180"
-                      : ""
-                  }`}
-                />
-              </button>
-
-              {openDropdown === "actualites" && (
-                <div className="absolute left-0 top-full pt-3">
-                  <div className="w-64 origin-top rounded-2xl border border-slate-100 bg-white p-2 shadow-2xl ring-1 ring-black/5 animate-in fade-in slide-in-from-top-2 duration-200">
-
-                    <Link
-                      href="/infos/articles"
-                      onClick={closeMenus}
-                      className="group flex items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-blue-50"
-                    >
-                      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
-                        <Newspaper className="h-4 w-4" />
-                      </span>
-
-                      <span>
-                        <span className="block text-sm font-bold text-slate-800">
-                          Politique
-                        </span>
-                        <span className="text-xs text-slate-500">
-                          Les dernières actualités
-                        </span>
-                      </span>
-                    </Link>
-
-                    <Link
-                      href="/infos/articles"
-                      onClick={closeMenus}
-                      className="group flex items-center gap-3 rounded-xl px-3 py-3 transition hover:bg-red-50"
-                    >
-                      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-red-100 text-red-600">
-                        <Megaphone className="h-4 w-4" />
-                      </span>
-
-                      <span>
-                        <span className="block text-sm font-bold text-slate-800">
-                          Économie
-                        </span>
-                        <span className="text-xs text-slate-500">
-                          economie
-                        </span>
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-              )}
+              <Link
+              href="/infos/articles"
+              onClick={closeMenus}
+              className="flex items-center gap-3 rounded-xl px-4 py-3.5 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700"
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
+                <Radio className="h-4 w-4" />
+                  </span>
+               ACTUALITÉS
+            </Link>
+              
             </div>
 
             {/* ================= MÉDIAS ================= */}
@@ -187,7 +130,7 @@ export default function NavBar() {
             <div className="text-xl font-extrabold tracking-tight text-slate-900 lg:hidden">
               PERFECT<span className="text-red-700"> TV</span>
             </div>
-            <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-slate-500 lg:hidden">
+            <div className="text-[9px] font-semibold uppercase tracking-[0.18em] text-red-700 lg:hidden">
               LA PERFECTION DANS LA SIMPLICITE
             </div>
           </div>
@@ -221,7 +164,9 @@ export default function NavBar() {
           
           <div className="mx-auto max-w-7xl px-4 pb-5 pt-3 sm:px-6">
 
+            
             {/* Accueil */}
+            
             <Link
               href="/"
               onClick={closeMenus}
@@ -233,51 +178,18 @@ export default function NavBar() {
             {/* À propos */}
 
             {/* Actualités mobile */}
-            <button
-              type="button"
-              onClick={() => toggleMobileDropdown("actualites")}
-              className="flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700"
+            <Link
+              href="/infos/articles"
+              onClick={closeMenus}
+              className="flex items-center gap-3 rounded-xl px-4 py-3.5 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700"
             >
-              <span className="flex items-center gap-3">
-                <Newspaper className="h-5 w-5 text-blue-700" />
-                ACTUALITÉS
-              </span>
-
-              <ChevronDown
-                className={`h-5 w-5 transition-transform ${
-                  mobileDropdown === "actualites"
-                    ? "rotate-180"
-                    : ""
-                }`}
-              />
-            </button>
-
-            <div
-              className={`overflow-hidden pl-4 transition-all duration-300 ${
-                mobileDropdown === "actualites"
-                  ? "max-h-60 opacity-100"
-                  : "max-h-0 opacity-0"
-              }`}
-            >
-              <Link
-                href="/infos/articles"
-                onClick={closeMenus}
-                className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-700"
-              >
-                <Newspaper className="h-4 w-4" />
-                Politique
-              </Link>
-
-              <Link
-
-                href="/infos/articles"
-                onClick={closeMenus}
-                className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-slate-600 hover:bg-red-50 hover:text-red-600"
-              >
-                <Megaphone className="h-4 w-4" />
-                Economie
-              </Link>
-            </div>
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100 text-blue-700">
+                <Radio className="h-4 w-4" />
+                  </span>
+               ACTUALITÉS
+            </Link>
+            
+            
 
             {/* Médias mobile */}
              <Link
