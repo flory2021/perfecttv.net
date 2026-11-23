@@ -15,7 +15,7 @@ function HeroSection() {
         <p className="text-customGray text-[9px] mb-[12px]">
           Au-delà des certaines exigence <br />
           Perfect tv vient d’acquérir désormais son site web :
-          <Link href="/#">www.perfecttv.com</Link>
+          <Link href="/#">www.perfecttv.fr</Link>
           <br />
           Et bientôt vous allez découvrir Perfect TV <br />
           <br />

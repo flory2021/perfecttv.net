@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://perfecttv.com
+Host: https://perfecttv.fr
 
 # Sitemaps
-Sitemap: https://perfecttv.com/sitemap.xml
+Sitemap: https://perfecttv.fr/sitemap.xml

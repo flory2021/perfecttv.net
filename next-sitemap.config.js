@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://perfecttv.com',
+  siteUrl: 'https://perfecttv.fr',
   generateRobotsTxt: true,
   sitemapSize: 5000,
 

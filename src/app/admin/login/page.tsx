@@ -97,7 +97,7 @@ export default function AdminLoginPage() {
                 maxLength={254}
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
-                placeholder="admin@perfecttv.com"
+                placeholder="admin@perfecttv.fr"
                 className="w-full rounded-lg border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition placeholder:text-slate-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
               />
             </div>
