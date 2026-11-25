@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import { FormEvent, useCallback, useEffect, useState } from "react";
@@ -41,6 +42,9 @@ export default function EditArticlePage() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
 
+	const [imageUploading, setImageUploading] = useState(false);
+	const [imagePreview, setImagePreview] = useState("");
+
   const updateField = (
     field: keyof ArticleForm,
     value: string | boolean
@@ -50,6 +54,47 @@ export default function EditArticlePage() {
       [field]: value,
     }));
   };
+
+async function handleImageUpload(
+  event: React.ChangeEvent<HTMLInputElement>
+) {
+  const file = event.target.files?.[0];
+
+  if (!file) return;
+
+  setError("");
+
+  const preview = URL.createObjectURL(file);
+  setImagePreview(preview);
+  setImageUploading(true);
+
+  try {
+    const uploadData = new FormData();
+    uploadData.append("file", file);
+
+    const response = await fetch("/api/admin/articles/upload", {
+      method: "POST",
+      body: uploadData,
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || !data.success || !data.image) {
+      throw new Error(data.message || "Erreur lors de l'upload.");
+    }
+
+    updateField("image", data.image);
+  } catch (err) {
+    setError(
+      err instanceof Error
+        ? err.message
+        : "Impossible d'envoyer l'image."
+    );
+    setImagePreview("");
+  } finally {
+    setImageUploading(false);
+  }
+}
 
   const loadArticle = useCallback(async () => {
     setLoading(true);
@@ -289,16 +334,41 @@ export default function EditArticlePage() {
               </div>
             </div>
 
-            <div>
-              <label className="mb-2 block text-sm font-semibold">
-                Image de couverture (URL ou chemin)
-              </label>
-              <input
-                value={form.image}
-                onChange={(e) => updateField("image", e.target.value)}
-                className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-red-500"
-              />
-            </div>
+           
+<div>
+  <label className="mb-2 block text-sm font-semibold">
+    Image de couverture
+  </label>
+
+  <input
+    type="file"
+    accept="image/jpeg,image/png,image/webp,image/gif"
+    onChange={handleImageUpload}
+    disabled={imageUploading}
+    className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3"
+  />
+
+  {imageUploading && (
+    <p className="mt-2 text-sm text-blue-600">
+      Envoi de l'image en cours...
+    </p>
+  )}
+
+  {(imagePreview || form.image) && (
+    <div className="mt-4">
+      <p className="mb-2 text-sm font-medium text-slate-600">
+        Aperçu de l'image
+      </p>
+
+      <img
+        src={imagePreview || form.image}
+        alt="Aperçu de la couverture"
+        className="h-56 w-full rounded-xl border object-cover"
+      />
+    </div>
+  )}
+</div>
+
 
             <label className="flex cursor-pointer items-center gap-3 rounded-xl bg-slate-50 p-4">
               <input
@@ -323,7 +393,7 @@ export default function EditArticlePage() {
 
             <button
               type="submit"
-              disabled={saving}
+              disabled={loading || imageUploading}
               className="inline-flex items-center gap-2 rounded-xl bg-red-600 px-6 py-3 text-sm font-semibold text-white hover:bg-red-700 disabled:opacity-60"
             >
               {saving ? (
