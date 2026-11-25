@@ -174,6 +174,7 @@ export default async function ArticlesPage({
                       src={article.image}
                       alt={article.title}
                       fill
+		      unoptimized
                       className="object-cover transition duration-500 group-hover:scale-105"
                     />
                     <span className="absolute left-4 top-4 rounded-full bg-red-600 px-3 py-1 text-xs font-bold text-white shadow">

@@ -19,7 +19,7 @@ function ContactPage() {
         
         <div className="min-h-screen flex items-center justify-center">
           <h1 className="p-8 text-center text-2xl font-bold text-gray-800">
-            Pour contacter Perfect TV, veuillez utiliser les informations ci-dessous. Nous sommes là pour répondre à vos questions et préoccupations.
+            Pour contacter Perfect TV, veuillez utiliser les informations ci-dessous. 
           </h1>
         </div>
  

@@ -38,6 +38,7 @@ export default async function ArticleDetailPage({
           alt={article.title}
           fill
           priority
+	  unoptimized
           className="object-cover"
         />
         
