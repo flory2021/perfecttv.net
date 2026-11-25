@@ -75,11 +75,11 @@ export default async function ArticleDetailPage({
           </span>
         </div>
 
-        <p className="mb-8 text-xl font-medium leading-8 text-slate-700">
+        <p className="mb-8 text-xl font-medium leading-8 text-slate-700 text-justify">
           {article.excerpt}
         </p>
 
-        <div className="space-y-6 text-lg leading-8 text-slate-700">
+        <div className="space-y-6 text-lg text-justify leading-8 text-slate-700">
           {article.content.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
