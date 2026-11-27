@@ -42,6 +42,7 @@ export default function NavBar() {
 
   return (
     <header className="sticky top-0 z-50 w-full">
+      <meta name="google-adsense-account" content="ca-pub-8092919703454438"></meta>
       {/* Top accent */}
       <div className="h-1 bg-gradient-to-r from-blue-700 via-blue-600 to-red-600" />
 
